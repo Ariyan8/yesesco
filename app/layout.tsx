@@ -119,7 +119,7 @@ export default function RootLayout({
             </div>
 
             <div className="mt-10 border-t border-emerald-100 pt-6 text-center text-sm text-slate-500">
-              © {new Date().getFullYear()} Yesesco. همه حقوق محفوظ است.
+              © {new Date().getFullYear()} Yesesco. تمام حقوق محفوظ است.
             </div>
           </div>
         </footer>

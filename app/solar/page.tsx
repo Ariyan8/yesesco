@@ -59,7 +59,7 @@ export default function SolarPage() {
                 سامانه ثبت درخواست نیروگاه خورشیدی
               </span>
               <h1 className="mt-6 text-4xl font-black leading-tight text-slate-900 lg:text-5xl">
-                شرکت یلدای سهند؛ <br />
+                شرکت یلدای سهند <br />
                 <span className="text-yellow-600">پیشرو در انرژی‌های تجدیدپذیر</span>
               </h1>
               <p className="mt-6 text-lg leading-8 text-slate-600">
@@ -77,10 +77,11 @@ export default function SolarPage() {
             {/* لیست ویژگی‌ها */}
             <div className="space-y-3">
               {[
-                "مشاوره تخصصی و فنی رایگان",
+                "مشاوره تخصصی و فنی ",
                 "برآورد دقیق بازگشت سرمایه",
                 "پشتیبانی در اخذ مجوزهای قانونی",
                 "تامین تجهیزات برند و استاندارد",
+                "اجرای تخصصی نیروگاه خورشیدی",
               ].map((item) => (
                 <div key={item} className="flex items-center gap-3 text-slate-700">
                   <span className="flex h-6 w-6 items-center justify-center rounded-full bg-yellow-500 text-white">

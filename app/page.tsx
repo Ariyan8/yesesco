@@ -249,7 +249,7 @@ function FeatureCard({
 
             <div className="mt-8 flex items-center justify-center gap-3">
               <span className="inline-flex items-center gap-2 rounded-full border border-yellow-300/50 bg-yellow-400/20 px-6 py-3 text-sm font-bold text-yellow-100 shadow-lg backdrop-blur-sm transition-transform duration-300 group-hover:scale-[1.03]">
-                ورود به بخش
+                وارد شوید
                 <ArrowIcon />
               </span>
             </div>
@@ -293,7 +293,7 @@ export default function HomePage() {
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
                 <FeatureCard
                   href="/solar"
-                  title="احداث نیروگاه‌های خورشیدی"
+                  title="احداث نیروگاه‌ خورشیدی"
                   description="طراحی، مشاوره و اجرای پروژه‌های خورشیدی با تمرکز بر راندمان و آینده‌سازی در انرژی پاک."
                   icon={<SolarIcon />}
                   accent="amber"
