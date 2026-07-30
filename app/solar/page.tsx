@@ -97,7 +97,7 @@ export default function SolarPage() {
               <StatCard
                 title="نیروگاه نصب شده"
                 value="150"
-                description="پروژه اجرا شده در مقیاس‌های مختلف"
+                description="پروژه  اجرا شده در مقیاس‌های مختلف"
               />
               <StatCard
                 title="ظرفیت نصب شده"
