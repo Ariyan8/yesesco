@@ -125,12 +125,10 @@ function SolarPanelCard({
       }}
     >
       <div className={`absolute -inset-3 rounded-[2.5rem] bg-gradient-to-br ${frameGlow} blur-2xl opacity-60`} />
-
       <div className="absolute inset-0 rounded-[2.5rem] bg-gradient-to-br from-slate-600 via-slate-500 to-slate-700 p-[10px] shadow-2xl">
         {["top-2 left-2", "top-2 right-2", "bottom-2 left-2", "bottom-2 right-2"].map((pos) => (
           <span key={pos} className={`absolute ${pos} h-3 w-3 rounded-full bg-slate-400 shadow-inner`} />
         ))}
-
         <div className="relative h-full w-full overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-yellow-950">
           <div
             className="absolute inset-0 grid"
@@ -149,14 +147,11 @@ function SolarPanelCard({
               </div>
             ))}
           </div>
-
           <div
             className="pointer-events-none absolute h-[200%] w-[45%] -translate-x-1/2 -translate-y-1/2 rotate-[25deg] bg-gradient-to-b from-white/25 via-white/10 to-transparent blur-xl"
             style={{ left: `${glareX}%`, top: `${glareY}%`, transition: "left 80ms, top 80ms" }}
           />
-
           <div className="pointer-events-none absolute left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-yellow-400/30 to-transparent animate-scan" />
-
           <div className="absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/10" />
         </div>
       </div>
@@ -216,7 +211,6 @@ function FeatureCard({
           glareY={glare.y}
           accent={accent}
         />
-
         <div
           className="relative z-10 flex h-full min-h-[540px] flex-col justify-between p-6 sm:p-8 lg:p-10"
           style={{
@@ -228,7 +222,6 @@ function FeatureCard({
           <div className="flex items-start justify-end">
             <LogoSlot src={logoSrc} alt={logoAlt} />
           </div>
-
           <div className="mx-auto w-full max-w-2xl text-center">
             <div className="mx-auto mb-5 inline-flex items-center gap-2 rounded-full border border-yellow-300/40 bg-white/10 px-4 py-1.5 text-xs font-bold tracking-wide text-yellow-200 backdrop-blur-sm">
               <span className="flex h-5 w-5 items-center justify-center text-yellow-300 [&>svg]:h-4 [&>svg]:w-4">
@@ -236,17 +229,13 @@ function FeatureCard({
               </span>
               {accent === "amber" ? "نیروگاه خورشیدی" : "آموزش تخصصی"}
             </div>
-
             <h2 className="text-4xl font-black leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl drop-shadow-lg">
               {title}
             </h2>
-
             <div className="mx-auto my-5 h-px w-24 bg-gradient-to-r from-transparent via-yellow-400/70 to-transparent" />
-
             <p className="mx-auto max-w-xl text-sm leading-8 text-white/80 sm:text-base lg:text-lg">
               {description}
             </p>
-
             <div className="mt-8 flex items-center justify-center gap-3">
               <span className="inline-flex items-center gap-2 rounded-full border border-yellow-300/50 bg-yellow-400/20 px-6 py-3 text-sm font-bold text-yellow-100 shadow-lg backdrop-blur-sm transition-transform duration-300 group-hover:scale-[1.03]">
                 وارد شوید
@@ -254,7 +243,6 @@ function FeatureCard({
               </span>
             </div>
           </div>
-
           <div className="grid grid-cols-2 gap-3 sm:gap-4">
             {stats.map((item) => (
               <StatBox key={item.label} value={item.value} label={item.label} />
@@ -288,6 +276,17 @@ export default function HomePage() {
         <div className="absolute inset-0 opacity-10 [background-image:linear-gradient(to_right,rgba(234,179,8,0.15)_1px,transparent_1px),linear-gradient(to_bottom,rgba(234,179,8,0.15)_1px,transparent_1px)] [background-size:76px_76px]" />
 
         <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col px-4 py-6 sm:px-6 lg:px-8">
+
+          {/* ── Tagline Header ── */}
+          <div className="w-full pt-8 pb-2 text-center">
+            <p
+              className="text-lg font-bold text-yellow-800/90 sm:text-xl lg:text-2xl tracking-wide"
+              style={{ fontFamily: 'B Nazanin, BNazanin, "Times New Roman", serif' }}
+            >
+              یلدای سهند، از آموزش تا اجرا، همراه مسیر خورشیدی شماست.
+            </p>
+          </div>
+
           <section className="flex flex-1 items-center py-8 md:py-12">
             <div className="w-full">
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
@@ -304,7 +303,6 @@ export default function HomePage() {
                     { value: "بیش از 10 مگاوات", label: "ظرفیت نصب‌شده" },
                   ]}
                 />
-
                 <FeatureCard
                   href="/academy"
                   title="آموزشگاه تخصصی خورشیدی"
