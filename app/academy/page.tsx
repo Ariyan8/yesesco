@@ -4,7 +4,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'آموزشگاه یلدای سهند | دوره‌های تخصصی انرژی خورشیدی',
+  title: 'آموزشگاه یلدای سهند  |  دوره‌های تخصصی انرژی خورشیدی',
   description:
     'آموزشگاه یلدای سهند؛ دوره‌های تخصصی انرژی خورشیدی، PVsyst، نصب نیروگاه‌های کوچک و GIS با رویکرد بازار کار و TVTO.',
 };
