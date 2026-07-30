@@ -70,7 +70,7 @@ export default function SolarPage() {
             {/* بخش آمار خلاصه */}
             <div className="grid grid-cols-3 gap-4">
               <StatCard title="پروژه‌های اجرا شده" value="+۱۵۰" />
-              <StatCard title="ظرفیت (کیلووات)" value="۱۵۰۰" />
+              <StatCard title="ظرفیت (کیلووات)" value="۵۰۰۰" />
               <StatCard title="رضایت مشتریان" value="۱۰۰٪" />
             </div>
 
