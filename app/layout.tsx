@@ -16,27 +16,23 @@ export default function RootLayout({
     <html lang="fa" dir="rtl">
       <body className="min-h-screen bg-gradient-to-b from-emerald-50 via-white to-yellow-50 text-slate-800">
         <header className="sticky top-0 z-50 border-b border-emerald-100 bg-white/90 backdrop-blur">
-          <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-            <Link href="/" className="text-xl font-black text-emerald-700">
-              YESESCO
-            </Link>
-
-            <nav className="flex items-center gap-2 text-sm font-medium">
+          <div className="mx-auto flex max-w-6xl items-center justify-center px-4 py-5">
+            <nav className="flex items-center gap-4 text-xl font-bold">
               <Link
                 href="/"
-                className="rounded-full px-4 py-2 transition hover:bg-emerald-50 hover:text-emerald-700"
+                className="rounded-full px-6 py-3 transition hover:bg-emerald-50 hover:text-emerald-700"
               >
                 صفحه اصلی
               </Link>
               <Link
                 href="/solar"
-                className="rounded-full px-4 py-2 transition hover:bg-emerald-50 hover:text-emerald-700"
+                className="rounded-full px-6 py-3 transition hover:bg-emerald-50 hover:text-emerald-700"
               >
                 متقاضیان نیروگاه خورشیدی
               </Link>
               <Link
                 href="/academy"
-                className="rounded-full px-4 py-2 transition hover:bg-emerald-50 hover:text-emerald-700"
+                className="rounded-full px-6 py-3 transition hover:bg-emerald-50 hover:text-emerald-700"
               >
                 آموزشگاه یلدای سهند
               </Link>

@@ -69,8 +69,8 @@ export default function SolarPage() {
 
             {/* بخش آمار خلاصه */}
             <div className="grid grid-cols-3 gap-4">
-              <StatCard title="پروژه‌های اجرا شده" value="+۱۵۰" />
-              <StatCard title="ظرفیت (کیلووات)" value="۵۰۰۰" />
+              <StatCard title="پروژه‌های اجرا شده" value="+۵۰۰" />
+              <StatCard title="ظرفیت (کیلووات)" value="۱۰۰۰۰" />
               <StatCard title="رضایت مشتریان" value="۱۰۰٪" />
             </div>
 
@@ -121,7 +121,6 @@ export default function SolarPage() {
         {/* بخش فوتر ساده */}
         <footer className="mt-20 border-t border-slate-200 pt-8 text-center text-slate-500">
           <p className="text-sm font-bold">
-            تمامی حقوق برای شرکت یلدای سهند محفوظ است © ۱۴۰۳
           </p>
         </footer>
       </div>

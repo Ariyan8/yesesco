@@ -227,7 +227,7 @@ export default function HomePage() {
                   logoSrc={logo1}
                   logoAlt="لوگو نیروگاه خورشیدی"
                   stats={[
-                    { value: "200", label: "نیروگاه نصب‌شده" },
+                    { value: "500", label: "نیروگاه نصب‌شده" },
                     { value: "بیش از 10 مگاوات", label: "ظرفیت نصب‌شده" },
                   ]}
                 />
