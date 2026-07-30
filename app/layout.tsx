@@ -17,22 +17,22 @@ export default function RootLayout({
       <body className="min-h-screen bg-gradient-to-b from-emerald-50 via-white to-yellow-50 text-slate-800">
         <header className="sticky top-0 z-50 border-b border-emerald-100 bg-white/90 backdrop-blur">
           <div className="mx-auto flex max-w-6xl items-center justify-center px-4 py-5">
-            <nav className="flex items-center gap-4 text-xl font-bold">
+            <nav className="flex flex-wrap items-center justify-center gap-3 text-base font-bold md:text-lg">
               <Link
                 href="/"
-                className="rounded-full px-6 py-3 transition hover:bg-emerald-50 hover:text-emerald-700"
+                className="rounded-full px-5 py-2.5 transition hover:bg-emerald-50 hover:text-emerald-700"
               >
                 صفحه اصلی
               </Link>
               <Link
                 href="/solar"
-                className="rounded-full px-6 py-3 transition hover:bg-emerald-50 hover:text-emerald-700"
+                className="rounded-full px-5 py-2.5 transition hover:bg-emerald-50 hover:text-emerald-700"
               >
                 متقاضیان نیروگاه خورشیدی
               </Link>
               <Link
                 href="/academy"
-                className="rounded-full px-6 py-3 transition hover:bg-emerald-50 hover:text-emerald-700"
+                className="rounded-full px-5 py-2.5 transition hover:bg-emerald-50 hover:text-emerald-700"
               >
                 آموزشگاه یلدای سهند
               </Link>
@@ -42,9 +42,63 @@ export default function RootLayout({
 
         <main>{children}</main>
 
-        <footer className="mt-16 border-t border-emerald-100 bg-white">
-          <div className="mx-auto max-w-6xl px-4 py-6 text-center text-sm text-slate-500">
-            © {new Date().getFullYear()} Yesesco. همه حقوق محفوظ است.
+        <footer className="mt-16 border-t border-emerald-100 bg-white/95">
+          <div className="mx-auto max-w-6xl px-4 py-10">
+            <div className="grid gap-8 md:grid-cols-3">
+              <div>
+                <h3 className="mb-4 text-lg font-bold text-emerald-800">
+                  Yesesco
+                </h3>
+                <p className="text-sm leading-7 text-slate-600">
+                  پیمانکار تخصصی احداث نیروگاه‌های خورشیدی و ارائه‌دهنده خدمات
+                  آموزشی و مهارتی در حوزه انرژی‌های تجدیدپذیر.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="mb-4 text-lg font-bold text-emerald-800">
+                  لینک‌های سریع
+                </h3>
+                <ul className="space-y-2 text-sm text-slate-600">
+                  <li>
+                    <Link href="/" className="transition hover:text-emerald-700">
+                      صفحه اصلی
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/solar"
+                      className="transition hover:text-emerald-700"
+                    >
+                      متقاضیان نیروگاه خورشیدی
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/academy"
+                      className="transition hover:text-emerald-700"
+                    >
+                      آموزشگاه فنی و حرفه‌ای
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="mb-4 text-lg font-bold text-emerald-800">
+                  تماس با ما
+                </h3>
+                <ul className="space-y-2 text-sm leading-7 text-slate-600">
+                  <li>البرز، کرج، عظیمیه، بلوار کاج، پلاک 365، واحد 3</li>
+                  <li> / تلفن: 09356109395</li>
+                  <li>ایمیل: yesesco13@gmail.com</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-10 border-t border-emerald-100 pt-6 text-center text-sm text-slate-500">
+              © {new Date().getFullYear()} Yesesco. همه حقوق محفوظ است.
+            </div>
           </div>
         </footer>
       </body>
