@@ -3,27 +3,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-type FormState = {
-  fullName: string;
-  phone: string;
-  city: string;
-  capacity: string;
-};
-
-function ArrowIcon() {
-  return (
-    <svg viewBox="0 0 24 24" className="h-5 w-5 rtl:rotate-180" fill="none" aria-hidden="true">
-      <path
-        d="M5 12h14m0 0-6-6m6 6-6 6"
-        stroke="currentColor"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
 function CheckIcon() {
   return (
     <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
@@ -77,21 +56,7 @@ function ProcessStep({
 }
 
 export default function SolarPage() {
-  const [formData, setFormData] = useState<FormState>({
-    fullName: "",
-    phone: "",
-    city: "",
-    capacity: "",
-  });
-
-  const handleChange = (field: keyof FormState, value: string) => {
-    setFormData((prev) => ({ ...prev, [field]: value }));
-  };
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    alert("درخواست شما ثبت شد. کارشناسان ما به‌زودی با شما تماس می‌گیرند.");
-  };
+  const [isIframeLoading, setIsIframeLoading] = useState(true);
 
   return (
     <main
@@ -99,10 +64,12 @@ export default function SolarPage() {
       style={{ fontFamily: 'B Nazanin, BNazanin, "Times New Roman", serif' }}
       className="min-h-screen overflow-hidden bg-[#f8fff5] text-slate-900"
     >
+      {/* بک‌گراند */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.98),transparent_35%),radial-gradient(circle_at_bottom_left,rgba(74,222,128,0.18),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(253,224,71,0.18),transparent_34%)]" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         <section className="grid items-center gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+          {/* بخش توضیحات */}
           <motion.div
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
@@ -122,8 +89,8 @@ export default function SolarPage() {
 
             <p className="mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
               اگر متقاضی احداث نیروگاه خورشیدی هستید، اطلاعات اولیه خود را ثبت کنید تا
-              تیم ما برای مشاوره، بررسی ظرفیت، برآورد بازدهی و شروع فرآیند اجرایی با شما
-              تماس بگیرد.
+              تیم ما برای مشاوره، بررسی ظرفیت، برآورد بازدهی و شروع فرآیند اجرایی با
+              شما تماس بگیرد.
             </p>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-3">
@@ -164,67 +131,33 @@ export default function SolarPage() {
             </div>
           </motion.div>
 
-          <motion.form
+          {/* فرم Epoll داخل iframe */}
+          <motion.div
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.1 }}
-            onSubmit={handleSubmit}
-            className="rounded-[2.5rem] border border-white/80 bg-white/80 p-7 shadow-[0_28px_90px_rgba(140,180,120,0.14)] backdrop-blur-xl sm:p-8"
+            className="relative rounded-[2.5rem] border border-white/80 bg-white/80 p-4 shadow-[0_28px_90px_rgba(140,180,120,0.14)] backdrop-blur-xl sm:p-6"
           >
-            <h2 className="text-2xl font-black text-slate-900 sm:text-3xl">
-              فرم ثبت متقاضی
-            </h2>
-            <p className="mt-3 text-sm leading-7 text-slate-600">
-              فرم زیر را تکمیل کنید تا اطلاعات شما برای بررسی اولیه ثبت شود.
-            </p>
-
-            <div className="mt-6 space-y-4">
-              <input
-                type="text"
-                value={formData.fullName}
-                onChange={(e) => handleChange("fullName", e.target.value)}
-                placeholder="نام و نام خانوادگی"
-                className="w-full rounded-2xl border border-lime-100 bg-white px-4 py-4 text-right text-slate-900 outline-none transition focus:border-lime-400"
-                required
-              />
-
-              <input
-                type="tel"
-                value={formData.phone}
-                onChange={(e) => handleChange("phone", e.target.value)}
-                placeholder="شماره تماس"
-                className="w-full rounded-2xl border border-lime-100 bg-white px-4 py-4 text-right text-slate-900 outline-none transition focus:border-lime-400"
-                required
-              />
-
-              <input
-                type="text"
-                value={formData.city}
-                onChange={(e) => handleChange("city", e.target.value)}
-                placeholder="شهر / محل احداث"
-                className="w-full rounded-2xl border border-lime-100 bg-white px-4 py-4 text-right text-slate-900 outline-none transition focus:border-lime-400"
-                required
-              />
-
-              <input
-                type="text"
-                value={formData.capacity}
-                onChange={(e) => handleChange("capacity", e.target.value)}
-                placeholder="ظرفیت موردنظر (مثلا 100 کیلووات)"
-                className="w-full rounded-2xl border border-lime-100 bg-white px-4 py-4 text-right text-slate-900 outline-none transition focus:border-lime-400"
-              />
-            </div>
-
-            <button
-              type="submit"
-              className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-emerald-500 to-lime-500 px-6 py-4 text-base font-black text-white shadow-[0_16px_40px_rgba(74,222,128,0.35)] transition hover:scale-[1.01]"
-            >
-              ثبت درخواست
-              <ArrowIcon />
-            </button>
-          </motion.form>
+            {/* لودر */}
+            {isIframeLoading && (
+              <div className="absolute inset-0 z-20 flex flex-col items-center justify-center rounded-[2.5rem] bg-white/90 backdrop-blur-sm">
+                <div className="h-10 w-10 animate-spin rounded-full border-4 border-lime-500 border-t-transparent" />
+                <p className="mt-4 text-sm font-medium text-slate-600">در حال بارگذاری فرم...</p>
+              </div>
+            )}
+            <iframe
+              src="https://app.epoll.ir/e/%D8%B4%D8%B1%DA%A9%D8%AA-%DB%8C%D9%84%D8%AF%D8%A7%DB%8C-%D8%B3%D9%87%D9%86%D8%AF/MjAyNjU2?Referral=iframe"
+              width="100%"
+              height={600}
+              title="فرم Epoll"
+              loading="lazy"
+              onLoad={() => setIsIframeLoading(false)}
+              className="w-full rounded-2xl border-0 bg-white"
+            />
+          </motion.div>
         </section>
 
+        {/* مراحل کار */}
         <section className="mt-10 rounded-[2.5rem] border border-white/80 bg-white/70 p-7 shadow-[0_28px_90px_rgba(140,180,120,0.12)] backdrop-blur-xl sm:p-10">
           <motion.div
             initial={{ opacity: 0, y: 28 }}
