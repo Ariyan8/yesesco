@@ -1,6 +1,7 @@
 // file: app/academy/page.tsx
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -32,12 +33,12 @@ const CourseCard: React.FC<CourseCardProps> = ({
   <div
     className={`relative flex flex-col justify-between rounded-3xl bg-white p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${
       isPopular
-        ? 'border-2 border-indigo-600 shadow-xl ring-4 ring-indigo-50'
-        : 'border border-gray-100 shadow-md hover:border-indigo-200'
+        ? 'border-2 border-yellow-400 shadow-xl ring-4 ring-yellow-400/10'
+        : 'border border-gray-100 shadow-md hover:border-yellow-200'
     }`}
   >
     {isPopular && (
-      <span className="absolute -top-4 right-8 rounded-full bg-gradient-to-r from-indigo-600 to-violet-600 px-4 py-1 text-xs font-bold text-white shadow-md">
+      <span className="absolute -top-4 right-8 rounded-full bg-gradient-to-r from-yellow-300 to-yellow-500 px-4 py-1 text-xs font-extrabold text-slate-950 shadow-md">
         پرتقاضاترین دوره
       </span>
     )}
@@ -45,12 +46,12 @@ const CourseCard: React.FC<CourseCardProps> = ({
     <div>
       {/* Header Info */}
       <div className="mb-4 flex items-center justify-between gap-2">
-        <span className="rounded-xl bg-indigo-50 px-3 py-1.5 text-xs font-semibold text-indigo-700">
+        <span className="rounded-xl bg-yellow-50 px-3 py-1.5 text-xs font-semibold text-yellow-700 border border-yellow-200/50">
           {badge}
         </span>
         <div className="flex items-center text-sm font-medium text-gray-500">
           <svg
-            className="ml-1 h-4 w-4 text-indigo-500"
+            className="ml-1 h-4 w-4 text-yellow-400"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -79,7 +80,7 @@ const CourseCard: React.FC<CourseCardProps> = ({
         <ul className="space-y-2.5 text-sm text-gray-700">
           {features.map((feat, index) => (
             <li key={index} className="flex items-center">
-              <span className="ml-2 flex h-5 w-5 items-center justify-center rounded-full bg-emerald-100 text-xs font-bold text-emerald-600">
+              <span className="ml-2 flex h-5 w-5 items-center justify-center rounded-full bg-yellow-100 text-xs font-bold text-yellow-700">
                 ✓
               </span>
               {feat}
@@ -93,8 +94,8 @@ const CourseCard: React.FC<CourseCardProps> = ({
       href={link}
       className={`inline-flex w-full items-center justify-center rounded-2xl px-6 py-3.5 font-bold transition-all duration-300 ${
         isPopular
-          ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-200 hover:bg-indigo-700'
-          : 'bg-slate-900 text-white hover:bg-indigo-600'
+          ? 'bg-yellow-400 text-slate-950 shadow-lg shadow-yellow-400/20 hover:bg-yellow-300'
+          : 'bg-slate-900 text-white hover:bg-yellow-400 hover:text-slate-950'
       }`}
     >
       مشاهده جزئیات و ثبت‌نام
@@ -102,24 +103,150 @@ const CourseCard: React.FC<CourseCardProps> = ({
   </div>
 );
 
+type FAQItem = {
+  q: string;
+  a: React.ReactNode;
+};
+
+const FAQ: React.FC<{ items: FAQItem[] }> = ({ items }) => {
+  return (
+    <div className="space-y-4">
+      {items.map((item, idx) => (
+        <details
+          key={idx}
+          className="group rounded-2xl border border-gray-200 bg-white p-5 shadow-sm open:shadow-md transition-all"
+        >
+          <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
+            <span className="text-sm md:text-base font-bold text-slate-900">
+              {item.q}
+            </span>
+            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-yellow-50 text-yellow-700 border border-yellow-200/60 transition-transform duration-300 group-open:rotate-45">
+              +
+            </span>
+          </summary>
+          <div className="mt-4 text-sm md:text-base leading-relaxed text-gray-600">
+            {item.a}
+          </div>
+        </details>
+      ))}
+    </div>
+  );
+};
+
 export default function AcademyPage() {
+  const faqs: FAQItem[] = [
+    {
+      q: 'این دوره‌ها برای چه کسانی مناسب است؟',
+      a: (
+        <p>
+          برای دانشجویان و فارغ‌التحصیلان برق/انرژی، تکنسین‌های تاسیسات، مجریان نیروگاه،
+          و افرادی که قصد ورود سریع و حرفه‌ای به بازار کار انرژی خورشیدی را دارند.
+          اگر از صفر شروع می‌کنید، مسیر پیشنهادی ما: ابتدا «نصب و اجرا» و سپس «PVsyst و طراحی نیروگاه» است.
+        </p>
+      ),
+    },
+    {
+      q: 'پیش‌نیاز دوره PVsyst چیست؟',
+      a: (
+        <ul className="list-disc pr-5 space-y-2">
+          <li>آشنایی پایه با برق (AC/DC)، توان و مفاهیم انرژی</li>
+          <li>کار با کامپیوتر و فایل‌ها (در حد عمومی)</li>
+          <li>
+            داشتن لپ‌تاپ برای تمرین توصیه می‌شود (در بخش مشخصات سخت‌افزار، راهنمایی ارائه می‌کنیم).
+          </li>
+        </ul>
+      ),
+    },
+    {
+      q: 'آیا دوره‌ها پروژه‌محور هستند؟',
+      a: (
+        <p>
+          بله. در هر دوره تمرین‌های مرحله‌به‌مرحله، کیس‌های واقعی نیروگاهی و خروجی‌های قابل ارائه
+          (گزارش، لیست تجهیزات، استرینگ‌بندی، فایل‌های شبیه‌سازی) تولید می‌کنید تا برای مصاحبه،
+          اجرا و یا ارائه به کارفرما آماده باشید.
+        </p>
+      ),
+    },
+    {
+      q: 'پس از پایان دوره چه خروجی‌هایی دریافت می‌کنم؟',
+      a: (
+        <ul className="list-disc pr-5 space-y-2">
+          <li>جزوه و فایل‌های تمرینی و قالب‌های گزارش‌نویسی</li>
+          <li>نمونه پروژه‌های شبیه‌سازی‌شده و چک‌لیست‌های اجرایی</li>
+          <li>گواهی پایان دوره  (و در صورت انتخاب مسیر فنی و حرفه ای آمادگی آزمون)</li>
+        </ul>
+      ),
+    },
+    {
+      q: 'دوره نصب و اجرا دقیقاً چه چیزهایی را پوشش می‌دهد؟',
+      a: (
+        <ul className="list-disc pr-5 space-y-2">
+          <li>اصول ایمنی، ابزارشناسی و استانداردهای پایه</li>
+          <li>سیم‌کشی DC/AC، طراحی تابلو، حفاظت‌ها، ارت و صاعقه‌گیر</li>
+          <li>راه‌اندازی، تست‌ها و تحویل (Commissioning) و خطایابی رایج</li>
+          <li>آشنایی عملی با تجهیزات رایج بازار و نکات اجرایی کارگاهی</li>
+        </ul>
+      ),
+    },
+    {
+      q: 'زمان‌بندی و نحوه برگزاری کلاس‌ها چگونه است؟',
+      a: (
+        <p>
+          کلاس‌ها به‌صورت برنامه‌ریزی‌شده (حضوری/نیمه‌حضوری/آنلاین بسته به دوره) برگزار می‌شود.
+          زمان‌بندی هر ترم قبل از ثبت‌نام اعلام می‌شود و برای شاغلین نیز گزینه‌های آخر هفته در نظر گرفته می‌شود.
+        </p>
+      ),
+    },
+    {
+      q: 'آیا پشتیبانی بعد از دوره دارید؟',
+      a: (
+        <p>
+          بله. پشتیبانی شامل رفع اشکال تمرین‌ها، بازبینی پروژه‌های اولیه هنرجو و راهنمایی مسیر ورود به بازار کار است.
+          همچنین برای هنرجویانی که در پروژه واقعی درگیر شوند، چک‌لیست‌های اجرایی و نکات کنترلی ارائه می‌گردد.
+        </p>
+      ),
+    },
+    {
+      q: 'برای شرکت در دوره‌ها چه تجهیزاتی لازم است؟',
+      a: (
+        <ul className="list-disc pr-5 space-y-2">
+          <li>
+            برای PVsyst: لپ‌تاپ ویندوزی با حداقل ۸GB RAM (پیشنهاد: ۱۶GB)، و فضای خالی کافی.
+          </li>
+          <li>
+            برای نصب و اجرا: در کارگاه ابزارهای اصلی فراهم است؛ داشتن دستکش ایمنی و کفش کار توصیه می‌شود.
+          </li>
+        </ul>
+      ),
+    },
+    {
+      q: 'اگر هدفم ورود سریع به بازار کار باشد، چه مسیری پیشنهاد می‌دهید؟',
+      a: (
+        <p>
+          مسیر سریع بازار کار معمولاً از «نصب و اجرا» شروع می‌شود و با «طراحی و PVsyst» تکمیل می‌گردد.
+          در پایان این مسیر، هم توان اجرای میدانی دارید و هم توان طراحی/گزارش‌نویسی برای کارفرما و سرمایه‌گذار.
+        </p>
+      ),
+    },
+  ];
+
   return (
     <main className="min-h-screen bg-slate-50/50 text-slate-800">
       {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-indigo-950 via-slate-900 to-indigo-900 py-20 text-white md:py-28">
+      <section className="relative overflow-hidden bg-gradient-to-b from-slate-950 via-zinc-900 to-yellow-950/80 py-20 text-white md:py-28">
         {/* Decorative Background Effects */}
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]" />
-        <div className="absolute -top-24 -left-24 h-96 w-96 rounded-full bg-indigo-500/20 blur-3xl" />
-        <div className="absolute -bottom-24 -right-24 h-96 w-96 rounded-full bg-violet-500/20 blur-3xl" />
+        <div className="absolute -top-24 -left-24 h-96 w-96 rounded-full bg-yellow-400/10 blur-3xl" />
+        <div className="absolute -bottom-24 -right-24 h-96 w-96 rounded-full bg-yellow-500/10 blur-3xl" />
 
         <div className="container relative mx-auto px-6 text-center">
-          <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-indigo-400/30 bg-indigo-500/10 px-4 py-2 text-xs md:text-sm font-semibold text-indigo-200 backdrop-blur-md">
-            <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+          <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-yellow-300/30 bg-yellow-400/10 px-4 py-2 text-xs md:text-sm font-semibold text-yellow-300 backdrop-blur-md">
+            <span className="h-2 w-2 rounded-full bg-yellow-300 animate-pulse" />
             مرکز تخصصی آموزش‌های تجدیدپذیر و نیروگاهی
           </span>
 
           <h1 className="mx-auto max-w-4xl text-3xl font-black leading-tight tracking-tight sm:text-5xl md:text-6xl">
-            آکادمی تخصصی <span className="text-indigo-400">یلدای سهند</span>
+            آموزشگاه تخصصی <span className="text-yellow-300">یلدای سهند</span>
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-slate-300 md:text-xl">
@@ -130,7 +257,7 @@ export default function AcademyPage() {
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
               href="#courses"
-              className="w-full sm:w-auto rounded-2xl bg-indigo-500 px-8 py-4 font-bold text-white shadow-lg shadow-indigo-500/30 transition-all hover:bg-indigo-400 hover:shadow-indigo-500/50"
+              className="w-full sm:w-auto rounded-2xl bg-yellow-400 px-8 py-4 font-bold text-slate-950 shadow-lg shadow-yellow-400/25 transition-all hover:bg-yellow-300 hover:shadow-yellow-400/40"
             >
               مشاهده دوره‌های فعال
             </Link>
@@ -154,7 +281,7 @@ export default function AcademyPage() {
             { label: 'ساعت آموزش کارگاهی', value: '+۲,۰۰۰' },
           ].map((stat, idx) => (
             <div key={idx} className="text-center p-2">
-              <div className="text-2xl md:text-4xl font-extrabold text-indigo-600">
+              <div className="text-2xl md:text-4xl font-extrabold text-yellow-500">
                 {stat.value}
               </div>
               <div className="mt-1 text-xs md:text-sm font-medium text-gray-500">
@@ -168,7 +295,7 @@ export default function AcademyPage() {
       {/* 3. COURSES SECTION */}
       <section id="courses" className="container mx-auto px-6 py-20">
         <div className="mb-14 text-center">
-          <span className="text-xs font-bold uppercase tracking-widest text-indigo-600">
+          <span className="text-xs font-bold uppercase tracking-widest text-yellow-500">
             مسیرهای یادگیری تخصصی
           </span>
           <h2 className="mt-2 text-3xl font-extrabold text-slate-900 md:text-4xl">
@@ -181,9 +308,8 @@ export default function AcademyPage() {
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2 max-w-5xl mx-auto">
-          {/* Course 1 */}
           <CourseCard
-            title="دوره جامع PVsyst & طراحی نیروگاه"
+            title="دوره جامع PVsyst &  طراحی نیروگاه خورشیدی"
             badge="سطح پیشرفته و مهندسی"
             duration="۳۰ ساعت تخصصی"
             description="آموزش صفر تا صد شبیه‌سازی نیروگاه‌های متصل به شبکه (On-Grid) و منفصل (Off-Grid)، تحلیل تابش، تلفات و گزارش‌گیری استاندار جهت ارائه به ساتبا و سرمایه‌گذاران."
@@ -196,18 +322,16 @@ export default function AcademyPage() {
             link="/academy/courses/pvsyst"
             isPopular={true}
           />
-
-          {/* Course 2 */}
           <CourseCard
-            title="نصب، اجرا و راه‌اندازی سیستم‌های PV"
-            badge="سطح عملیاتی و کارگاهی (TVTO)"
+            title="نصب، اجرا و راه‌اندازی سیستم‌های فتوولتائیک"
+            badge="سطح عملیاتی و کارگاهی فنی و حرفه ای"
             duration="۵۰ ساعت (تئوری + عملی)"
             description="دوره کاملاً کاربردی و کارگاهی مطابق استاندارد سازمان آموزش فنی و حرفه‌ای کشور. آموزش سیم‌کشی، تابلو برق، اینورترهای Growatt و تست‌های تحویل."
             features={[
               'آشنایی عملی با پلتفرم‌ها و اینورترهای Growatt',
               'سیم‌کشی DC/AC، صاعقه‌گیر و سیستم ارتینگ',
               'کار با ابزارهای تست سولار و تزریق به شبکه',
-              'آماده‌سازی برای آزمون رسمی و مدرک TVTO',
+              'آماده‌سازی برای آزمون رسمی و مدرک فنی و حرفه ای',
             ]}
             link="/academy/courses/installation"
             isPopular={false}
@@ -216,11 +340,11 @@ export default function AcademyPage() {
       </section>
 
       {/* 4. WHY US / ADVANTAGES */}
-      <section className="bg-gradient-to-b from-indigo-50/50 to-white py-20 border-y border-indigo-100">
+      <section className="bg-gradient-to-b from-yellow-50/40 via-white to-white py-20 border-y border-yellow-100">
         <div className="container mx-auto px-6">
           <div className="mb-14 text-center">
             <h2 className="text-3xl font-extrabold text-slate-900">
-              چرا آکادمی یلدای سهند؟
+              چرا آموزشگاه یلدای سهند؟
             </h2>
             <p className="mt-3 text-gray-600">
               تفاوت ما در انتقال دانش عملیاتی از قلب پروژه‌های نیروگاهی است.
@@ -230,7 +354,7 @@ export default function AcademyPage() {
           <div className="grid gap-6 md:grid-cols-3">
             {[
               {
-                title: 'مدرک معتبر TVTO',
+                title: 'مدرک معتبر فنی و حرفه ای',
                 desc: 'امکان شرکت در آزمون‌های سازمان فنی و حرفه‌ای و دریافت مدرک بین‌المللی جهت رزومه و مهاجرت کاری.',
                 icon: '📜',
               },
@@ -265,7 +389,7 @@ export default function AcademyPage() {
       {/* 5. INSTRUCTORS */}
       <section className="container mx-auto px-6 py-20">
         <div className="mb-14 text-center">
-          <span className="text-xs font-bold uppercase tracking-widest text-indigo-600">
+          <span className="text-xs font-bold uppercase tracking-widest text-yellow-500">
             کادر علمی و آموزشی
           </span>
           <h2 className="mt-2 text-3xl font-extrabold text-slate-900">
@@ -273,27 +397,119 @@ export default function AcademyPage() {
           </h2>
         </div>
 
-        <div className="mx-auto max-w-3xl rounded-3xl bg-white p-8 shadow-lg border border-indigo-50 flex flex-col md:flex-row items-center gap-8">
-          <div className="relative h-36 w-36 shrink-0 overflow-hidden rounded-2xl bg-indigo-100 border-2 border-indigo-200 flex items-center justify-center text-4xl font-black text-indigo-600">
-            AS
-          </div>
-          <div>
-            <div className="flex items-center gap-3">
-              <h3 className="text-2xl font-bold text-slate-900">
-                مهندس آریان صدرایی
-              </h3>
-              <span className="rounded-full bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700">
-                مدرس ارشد
-              </span>
+        <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-3">
+          {/* Instructor 1: Dr. Naser Fathi */}
+          <div className="rounded-3xl bg-white p-8 shadow-lg border border-yellow-100 flex flex-col items-center text-center">
+            <div className="relative mb-6 h-32 w-32 overflow-hidden rounded-2xl border-2 border-yellow-300/60 shadow-md">
+              <Image
+                src="/img/Fathi.jpg"
+                alt="دکتر ناصر فتحی"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 128px"
+              />
             </div>
-            <p className="mt-1 text-sm font-medium text-indigo-600">
-              طراح و مشاور پروژه‌های نیروگاهی خورشیدی | متخصص PVsyst & GIS
-            </p>
-            <p className="mt-4 text-sm leading-relaxed text-gray-600">
-              با سابقه طراحی و نظارت بر چندین مگاوات پروژه خورشیدی نیروگاهی و صنعتی
-              در کشور. مدرس رسمی دوره‌های تخصصی انرژی تجدیدپذیر منطبق با استانداردهای
-              بین‌المللی و نیازهای ساتبا.
-            </p>
+            <div className="flex items-center gap-3">
+              <h3 className="text-xl font-bold text-slate-900">
+                دکتر ناصر فتحی
+              </h3>
+            </div>
+
+            {/* Resume */}
+            <div className="mt-5 w-full text-right">
+              <p className="text-sm leading-relaxed text-gray-600">
+                مدرس و پژوهشگر حوزه انرژی‌های تجدیدپذیر با تمرکز بر طراحی و ارزیابی فنی–اقتصادی
+                نیروگاه‌های خورشیدی. تجربه تدریس دانشگاهی/کارگاهی و راهبری پروژه‌های شبیه‌سازی،
+                استانداردسازی گزارش‌ها و تحلیل تلفات و عملکرد سیستم‌های PV.
+              </p>
+
+              <div className="mt-4 grid grid-cols-1 gap-2 text-sm text-gray-700">
+                <div className="rounded-xl bg-yellow-50 border border-yellow-200/60 px-3 py-2">
+                  <span className="font-bold text-slate-900">حوزه‌ها:</span>{' '}
+                  PVsyst، تحلیل تابش و تلفات، طراحی نیروگاه‌های On-Grid/Off-Grid
+                </div>
+                <div className="rounded-xl bg-yellow-50 border border-yellow-200/60 px-3 py-2">
+                  <span className="font-bold text-slate-900">توانمندی‌ها:</span>{' '}
+                  گزارش‌گیری ساتبا/سرمایه‌گذار، انتخاب تجهیزات و بهینه‌سازی استرینگ‌بندی
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Instructor 2: Dr. Nazila Zarabinia */}
+          <div className="rounded-3xl bg-white p-8 shadow-lg border border-yellow-100 flex flex-col items-center text-center">
+            <div className="relative mb-6 h-32 w-32 overflow-hidden rounded-2xl border-2 border-yellow-300/60 shadow-md">
+              <Image
+                src="/img/Zarabinia.webp"
+                alt="دکتر نازیلا ضرابی نیا"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 128px"
+              />
+            </div>
+            <div className="flex items-center gap-3">
+              <h3 className="text-xl font-bold text-slate-900">
+                دکتر نازیلا ضرابی نیا
+              </h3>
+            </div>
+
+            {/* Resume */}
+            <div className="mt-5 w-full text-right">
+              <p className="text-sm leading-relaxed text-gray-600">
+                متخصص آموزش و توسعه مهارت‌های مهندسی در حوزه انرژی خورشیدی با تمرکز بر
+                اصول طراحی سیستم، استانداردهای ایمنی و کنترل کیفیت اجرا. تجربه آموزش
+                ساختارمند، انتقال مفاهیم پیچیده به زبان ساده و همراهی هنرجویان تا رسیدن به خروجی قابل اجرا.
+              </p>
+
+              <div className="mt-4 grid grid-cols-1 gap-2 text-sm text-gray-700">
+                <div className="rounded-xl bg-yellow-50 border border-yellow-200/60 px-3 py-2">
+                  <span className="font-bold text-slate-900">حوزه‌ها:</span>{' '}
+                  طراحی سیستم PV، استانداردها و ایمنی، کنترل کیفیت و چک‌لیست‌های تحویل
+                </div>
+                <div className="rounded-xl bg-yellow-50 border border-yellow-200/60 px-3 py-2">
+                  <span className="font-bold text-slate-900">توانمندی‌ها:</span>{' '}
+                  آموزش پروژه‌محور، سناریوهای خطایابی رایج، آماده‌سازی هنرجو برای کارگاه و بازار کار
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Instructor 3: Eng. Ariyan Sadraei */}
+          <div className="rounded-3xl bg-white p-8 shadow-lg border border-yellow-100 flex flex-col items-center text-center">
+            <div className="relative mb-6 h-32 w-32 overflow-hidden rounded-2xl border-2 border-yellow-300/60 shadow-md">
+              <Image
+                src="/img/Sadraei.jpg"
+                alt="مهندس آریان صدرائی"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 128px"
+              />
+            </div>
+            <div className="flex items-center gap-3">
+              <h3 className="text-xl font-bold text-slate-900">
+                مهندس آریان صدرائی
+              </h3>
+            </div>
+
+            {/* Resume */}
+            <div className="mt-5 w-full text-right">
+              <p className="text-sm leading-relaxed text-gray-600">
+                متخصص انرژی‌های تجدیدپذیر و طراح سیستم‌های خورشیدی/هیبرید با تجربه اجرای پروژه‌های
+                صنعتی و ارائه خروجی‌های مهندسی قابل اتکا. تمرکز بر معماری فنی پروژه، لیست تجهیزات،
+                برآوردهای اقتصادی، و اتصال آموزش به نیاز واقعی بازار و پروژه‌های پیمانکاری.
+              </p>
+
+              <div className="mt-4 grid grid-cols-1 gap-2 text-sm text-gray-700">
+                <div className="rounded-xl bg-yellow-50 border border-yellow-200/60 px-3 py-2">
+                  <span className="font-bold text-slate-900">حوزه‌ها:</span>{' '}
+                  طراحی نیروگاه، سیستم‌های هیبرید، برآورد اقتصادی (IRR/LCOE)، مانیتورینگ
+                </div>
+                <div className="rounded-xl bg-yellow-50 border border-yellow-200/60 px-3 py-2">
+                  <span className="font-bold text-slate-900">توانمندی‌ها:</span>{' '}
+                  تهیه لیست تجهیزات، تحلیل سناریو، GIS/QGIS، استانداردسازی مستندات پروژه
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -305,66 +521,12 @@ export default function AcademyPage() {
             <h2 className="text-3xl font-extrabold text-slate-900">
               سوالات متداول
             </h2>
-            <p className="mt-2 text-gray-600">
-              پاسخ به برخی از پرسش‌های معمول هنرجویان جدید
+            <p className="mt-3 text-gray-600 text-sm md:text-base">
+              پاسخ سریع به پرتکرارترین سوالات ثبت‌نام، مسیر یادگیری و خروجی دوره‌ها.
             </p>
           </div>
 
-          <div className="space-y-4">
-            {[
-              {
-                q: 'آیا برای شرکت در دوره‌ها پیش‌نیاز خاصی لازم است؟',
-                a: 'برای دوره نصب و راه‌اندازی، آشنایی اولیه با برق کافی است. برای دوره PVsyst، داشتن پیش‌زمینه مهندسی (برق، مکانیک، عمران یا انرژی) پیشنهاد می‌شود.',
-              },
-              {
-                q: 'آیا مدرک اعطایی قابل ترجمه و معتبر است؟',
-                a: 'بله، پس از اتمام دوره و قبولی در آزمون سازمان آموزش فنی و حرفه‌ای (TVTO)، مدرک رسمی با قابلیت ترجمه رسمی صادر می‌گردد.',
-              },
-              {
-                q: 'آیا امکان برگزاری دوره‌ها به صورت اختصاصی یا سازمانی وجود دارد؟',
-                a: 'بله، آکادمی یلدای سهند دوره‌های سفارشی‌سازی شده برای شرکت‌ها، سازمان‌ها و تیم‌های مهندسی نیز برگزار می‌کند.',
-              },
-            ].map((faq, idx) => (
-              <details
-                key={idx}
-                className="group rounded-2xl bg-white p-6 border border-gray-200 shadow-sm transition-all [&_summary::-webkit-details-marker]:hidden"
-              >
-                <summary className="flex cursor-pointer items-center justify-between font-bold text-slate-800">
-                  <span>{faq.q}</span>
-                  <span className="ml-1.5 shrink-0 rounded-full bg-slate-100 p-1.5 text-slate-900 transition duration-300 group-open:-rotate-180">
-                    ▼
-                  </span>
-                </summary>
-                <p className="mt-4 text-sm leading-relaxed text-gray-600 border-t border-gray-100 pt-4">
-                  {faq.a}
-                </p>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 7. CONSULTATION / CTA SECTION */}
-      <section id="consultation" className="container mx-auto px-6 py-20">
-        <div className="rounded-3xl bg-gradient-to-r from-indigo-700 to-violet-800 p-10 md:p-16 text-white shadow-2xl relative overflow-hidden text-center md:text-right flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="max-w-xl">
-            <h2 className="text-3xl font-extrabold md:text-4xl">
-              نیازمند مشاوره برای انتخاب دوره هستید؟
-            </h2>
-            <p className="mt-4 text-indigo-100 text-base leading-relaxed">
-              کارشناسان آموزشی ما آماده‌اند تا با توجه به هدف شغلی و زمینه تحصیلی شما،
-              بهترین مسیر یادگیری را به شما پیشنهاد دهند.
-            </p>
-          </div>
-
-          <div className="shrink-0 flex flex-col sm:flex-row gap-4 w-full md:w-auto">
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center rounded-2xl bg-white px-8 py-4 font-bold text-indigo-700 shadow-lg transition-all hover:bg-indigo-50"
-            >
-              تماس با مشاوره آموزش
-            </Link>
-          </div>
+          <FAQ items={faqs} />
         </div>
       </section>
     </main>

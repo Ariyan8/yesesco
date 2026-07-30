@@ -35,7 +35,7 @@ export default function SolarPage() {
     <main
       dir="rtl"
       style={{ fontFamily: 'B Nazanin, "B Nazanin", "BNazanin", serif' }}
-      className="min-h-screen bg-[#f9fafb] text-slate-900 selection:bg-lime-200"
+      className="min-h-screen bg-[#f9fafb] text-slate-900 selection:bg-yellow-200"
     >
       {/* استایل سراسری برای اطمینان از اعمال فونت بر روی تمام المان‌ها */}
       <style jsx global>{`
@@ -55,12 +55,12 @@ export default function SolarPage() {
             className="space-y-8"
           >
             <div>
-              <span className="inline-flex rounded-full bg-lime-100 px-4 py-1.5 text-sm font-bold text-lime-700">
+              <span className="inline-flex rounded-full bg-yellow-100 px-4 py-1.5 text-sm font-bold text-yellow-700">
                 سامانه ثبت درخواست نیروگاه خورشیدی
               </span>
               <h1 className="mt-6 text-4xl font-black leading-tight text-slate-900 lg:text-5xl">
                 شرکت یلدای سهند؛ <br />
-                <span className="text-lime-600">پیشرو در انرژی‌های تجدیدپذیر</span>
+                <span className="text-yellow-600">پیشرو در انرژی‌های تجدیدپذیر</span>
               </h1>
               <p className="mt-6 text-lg leading-8 text-slate-600">
                 جهت احداث نیروگاه خورشیدی و بهره‌مندی از مزایای سرمایه‌گذاری در این حوزه، لطفاً فرم روبه‌رو را تکمیل نمایید. کارشناسان ما پس از بررسی اولیه جهت هماهنگی‌های بعدی با شما تماس خواهند گرفت.
@@ -83,7 +83,7 @@ export default function SolarPage() {
                 "تامین تجهیزات برند و استاندارد",
               ].map((item) => (
                 <div key={item} className="flex items-center gap-3 text-slate-700">
-                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-lime-500 text-white">
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-yellow-500 text-white">
                     <CheckIcon />
                   </span>
                   <span className="text-lg font-bold">{item}</span>
@@ -102,7 +102,7 @@ export default function SolarPage() {
             {/* لودر فرم */}
             {isIframeLoading && (
               <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-white">
-                <div className="h-12 w-12 animate-spin rounded-full border-4 border-lime-500 border-t-transparent" />
+                <div className="h-12 w-12 animate-spin rounded-full border-4 border-yellow-500 border-t-transparent" />
                 <p className="mt-4 text-lg font-bold text-slate-600">در حال بارگذاری فرم ثبت‌نام...</p>
               </div>
             )}
@@ -110,7 +110,7 @@ export default function SolarPage() {
             <iframe
               src="https://app.epoll.ir/e/شرکت-یلدای-سهند/MjAyNjU2?Referral=iframe"
               width="100%"
-              height="650px"
+              height="600px"
               title="فرم ثبت درخواست"
               onLoad={() => setIsIframeLoading(false)}
               className="border-0"
