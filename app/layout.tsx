@@ -1,6 +1,9 @@
 import "./globals.css";
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
+
+import logo1 from "../img/logo1.jpg"; // مسیر را مطابق محل واقعی فایل چک کنید
 
 export const metadata: Metadata = {
   title: "پیمانکار احداث نیروگاه خورشیدی و آموزشگاه فنی حرفه ای یلدای سهند",
@@ -16,23 +19,42 @@ export default function RootLayout({
     <html lang="fa" dir="rtl">
       <body className="min-h-screen bg-gradient-to-b from-emerald-50 via-white to-yellow-50 text-slate-800">
         <header className="sticky top-0 z-50 border-b border-emerald-100 bg-white/90 backdrop-blur">
-          <div className="mx-auto flex max-w-6xl items-center justify-center px-4 py-5">
-            <nav className="flex flex-wrap items-center justify-center gap-3 text-base font-bold md:text-lg">
+          <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4">
+            {/* Logo + Brand */}
+            <Link href="/" className="flex items-center gap-3">
+              <Image
+                src={logo1}
+                alt="لوگو یلدای سهند"
+                className="h-11 w-11 rounded-xl object-cover ring-1 ring-emerald-100"
+                priority
+              />
+              <div className="hidden sm:block leading-tight">
+                <div className="text-base font-extrabold text-emerald-800">
+                  Yesesco
+                </div>
+                <div className="text-xs font-medium text-slate-500">
+                  یلدای سهند
+                </div>
+              </div>
+            </Link>
+
+            {/* Nav */}
+            <nav className="flex flex-wrap items-center justify-center gap-2 text-sm font-bold md:gap-3 md:text-lg">
               <Link
                 href="/"
-                className="rounded-full px-5 py-2.5 transition hover:bg-emerald-50 hover:text-emerald-700"
+                className="rounded-full px-4 py-2.5 transition hover:bg-emerald-50 hover:text-emerald-700"
               >
                 صفحه اصلی
               </Link>
               <Link
                 href="/solar"
-                className="rounded-full px-5 py-2.5 transition hover:bg-emerald-50 hover:text-emerald-700"
+                className="rounded-full px-4 py-2.5 transition hover:bg-emerald-50 hover:text-emerald-700"
               >
                 متقاضیان نیروگاه خورشیدی
               </Link>
               <Link
                 href="/academy"
-                className="rounded-full px-5 py-2.5 transition hover:bg-emerald-50 hover:text-emerald-700"
+                className="rounded-full px-4 py-2.5 transition hover:bg-emerald-50 hover:text-emerald-700"
               >
                 آموزشگاه یلدای سهند
               </Link>
