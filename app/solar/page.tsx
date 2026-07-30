@@ -96,7 +96,7 @@ export default function SolarPage() {
             <div className="mt-8 grid gap-4 sm:grid-cols-3">
               <StatCard
                 title="نیروگاه نصب شده"
-                value="150"
+                value="250"
                 description="پروژه  اجرا شده در مقیاس‌های مختلف"
               />
               <StatCard
