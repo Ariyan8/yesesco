@@ -185,7 +185,7 @@ export default function AcademyPage() {
         </div>
         <div className="grid gap-8 md:grid-cols-2 max-w-5xl mx-auto">
           <CourseCard
-            title="دوره جامع PVsyst & طراحی نیروگاه خورشیدی"
+            title="دوره جامع PVsyst،  طراحی نیروگاه خورشیدی"
             badge="سطح پیشرفته و مهندسی"
             duration="۳۰ ساعت تخصصی"
             description="آموزش صفر تا صد شبیه‌سازی نیروگاه‌های متصل به شبکه (On-Grid) و منفصل (Off-Grid)، تحلیل تابش، تلفات و گزارش‌گیری استاندارد جهت ارائه به ساتبا و سرمایه‌گذاران."
@@ -199,7 +199,7 @@ export default function AcademyPage() {
             isPopular={true}
           />
           <CourseCard
-            title="نصب، اجرا و راه‌اندازی سیستم‌های فتوولتائیک"
+            title="نصب، اجرا و راه‌اندازی نیروگاه خورشیدی "
             badge="سطح عملیاتی و کارگاهی فنی و حرفه ای"
             duration="۵۰ ساعت (تئوری + عملی)"
             description="دوره کاملاً کاربردی و کارگاهی مطابق استاندارد سازمان آموزش فنی و حرفه‌ای کشور. آموزش سیم‌کشی، تابلو برق، اینورترهای Growatt و تست‌های تحویل."

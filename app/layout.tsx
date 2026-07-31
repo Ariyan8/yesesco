@@ -112,15 +112,12 @@ export default function RootLayout({
                 </h3>
                 <ul className="space-y-2 text-sm leading-7 text-slate-600">
                   <li>البرز، کرج، عظیمیه، بلوار کاج، پلاک 365، واحد 3</li>
-                  <li> / تلفن: 09356109395</li>
+                  <li> تلفن: 09356109395</li>
                   <li>ایمیل: yesesco13@gmail.com</li>
                 </ul>
               </div>
             </div>
 
-            <div className="mt-10 border-t border-emerald-100 pt-6 text-center text-sm text-slate-500">
-              © {new Date().getFullYear()} Yesesco. تمام حقوق محفوظ است.
-            </div>
           </div>
         </footer>
       </body>
