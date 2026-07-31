@@ -179,7 +179,6 @@ export default function AcademyPage() {
       {/* 3. COURSES */}
       <section id="courses" className="container mx-auto px-6 py-20">
         <div className="mb-14 text-center">
-          <span className="text-xs font-bold uppercase tracking-widest text-yellow-500">مسیرهای یادگیری تخصصی</span>
           <h2 className="mt-2 text-3xl font-extrabold text-slate-900 md:text-4xl">دوره‌های آموزشی خورشیدی</h2>
           <p className="mt-3 text-gray-600 max-w-xl mx-auto text-sm md:text-base">دوره‌ها به‌گونه‌ای طراحی شده‌اند که تمام نیازهای نرم‌افزاری، محاسباتی و اجرایی شما را پوشش دهند.</p>
         </div>
