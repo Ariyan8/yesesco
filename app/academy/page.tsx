@@ -163,7 +163,7 @@ export default function AcademyPage() {
       <section className="relative z-10 -mt-10 container mx-auto px-6">
         <div className="grid grid-cols-2 gap-4 rounded-3xl bg-white p-6 shadow-xl border border-gray-100 md:grid-cols-4 md:p-8">
           {[
-            { label: 'دانش‌آموخته متخصص', value: '+۵۰۰' },
+            { label: 'دانش‌آموخته متخصص', value: '+۱۲۰۰' },
             { label: 'پروژه‌های شبیه‌سازی‌شده', value: '+۱۵۰' },
             { label: 'رضایت هنرجویان', value: '۹۸٪' },
             { label: 'ساعت آموزش کارگاهی', value: '+۲,۰۰۰' },
