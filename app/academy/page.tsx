@@ -90,6 +90,15 @@ const FAQ: React.FC<{ items: FAQItem[] }> = ({ items }) => (
   </div>
 );
 
+interface InstructorData {
+  src: string;
+  alt: string;
+  name: string;
+  bio: string;
+  fields: string;
+  skills: string;
+}
+
 export default function AcademyPage() {
   const faqs: FAQItem[] = [
     {
@@ -127,6 +136,27 @@ export default function AcademyPage() {
     {
       q: 'اگر هدفم ورود سریع به بازار کار باشد، چه مسیری پیشنهاد می‌دهید؟',
       a: <p>مسیر سریع بازار کار معمولاً از «نصب و اجرا» شروع می‌شود و با «طراحی و PVsyst» تکمیل می‌گردد.</p>,
+    },
+  ];
+
+  const instructors: InstructorData[] = [
+    {
+      src: '/img/Fathi.jpg', alt: 'دکتر ناصر فتحی', name: 'دکتر ناصر فتحی',
+      bio: 'مدرس و پژوهشگر حوزه انرژی‌های تجدیدپذیر با تمرکز بر طراحی و ارزیابی فنی–اقتصادی نیروگاه‌های خورشیدی. تجربه تدریس دانشگاهی/کارگاهی و راهبری پروژه‌های شبیه‌سازی، استانداردسازی گزارش‌ها و تحلیل تلفات و عملکرد سیستم‌های PV.',
+      fields: 'مدیریت احداث نیروگاه خورشیدی،PVsyst، تحلیل تابش و تلفات، طراحی نیروگاه‌های On-Grid/Off-Grid/Hybrid',
+      skills: 'مدیریت پروژه، طراحی نیروگاه خورشیدی، تحلیل اقتصادی',
+    },
+    {
+      src: '/img/Zarabinia.webp', alt: 'دکتر نازیلا ضرابی نیا', name: 'دکتر نازیلا ضرابی نیا',
+      bio: 'متخصص آموزش و توسعه مهارت‌های مهندسی در حوزه انرژی خورشیدی با تمرکز بر اصول طراحی سیستم، استانداردهای ایمنی و کنترل کیفیت اجرا.',
+      fields: 'طراحی سیستم PV، استانداردها و ایمنی، کنترل کیفیت و چک‌لیست‌های تحویل',
+      skills: 'آموزش مهندسی نرم افزار های تخصصی PVsyst، PVsol، استانداردسازی، کنترل کیفیت',
+    },
+    {
+      src: '/img/Sadraei.jpg', alt: 'مهندس آریان صدرائی', name: 'مهندس آریان صدرائی',
+      bio: 'متخصص انرژی‌های تجدیدپذیر و طراح سیستم‌های خورشیدی/هیبرید با تجربه اجرای پروژه‌های صنعتی و ارائه خروجی‌های مهندسی قابل اتکا.',
+      fields: 'طراحی نیروگاه، سیستم‌های هیبرید، برآورد اقتصادی، نیروگاه باد، GIS، اتوکد (IRR/LCOE)، مانیتورینگ',
+      skills: 'PVsyst، AutoCAD، QGIS، Python، تحلیل مالی',
     },
   ];
 
@@ -243,26 +273,7 @@ export default function AcademyPage() {
           <h2 className="mt-2 text-3xl font-extrabold text-slate-900">مدرسین دوره</h2>
         </div>
         <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-3">
-          {[
-            {
-              src: '/img/Fathi.jpg', alt: 'دکتر ناصر فتحی', name: 'دکتر ناصر فتحی',
-              bio: 'مدرس و پژوهشگر حوزه انرژی‌های تجدیدپذیر با تمرکز بر طراحی و ارزیابی فنی–اقتصادی نیروگاه‌های خورشیدی. تجربه تدریس دانشگاهی/کارگاهی و راهبری پروژه‌های شبیه‌سازی، استانداردسازی گزارش‌ها و تحلیل تلفات و عملکرد سیستم‌های PV.',
-              fields: 'PVsyst، تحلیل تابش و تلفات، طراحی نیروگاه‌های On-Grid/Off-Grid',
-              skills: 'گزارش‌گیری ساتبا/سرمایه‌گذار، انتخاب تجهیزات و بهینه‌سازی استرینگ‌بندی',
-            },
-            {
-              src: '/img/Zarabinia.webp', alt: 'دکتر نازیلا ضرابی نیا', name: 'دکتر نازیلا ضرابی نیا',
-              bio: 'متخصص آموزش و توسعه مهارت‌های مهندسی در حوزه انرژی خورشیدی با تمرکز بر اصول طراحی سیستم، استانداردهای ایمنی و کنترل کیفیت اجرا.',
-              fields: 'طراحی سیستم PV، استانداردها و ایمنی، کنترل کیفیت و چک‌لیست‌های تحویل',
-              skills: 'آموزش پروژه‌محور، سناریوهای خطایابی رایج، آماده‌سازی هنرجو برای کارگاه و بازار کار',
-            },
-            {
-              src: '/img/Sadraei.jpg', alt: 'مهندس آریان صدرائی', name: 'مهندس آریان صدرائی',
-              bio: 'متخصص انرژی‌های تجدیدپذیر و طراح سیستم‌های خورشیدی/هیبرید با تجربه اجرای پروژه‌های صنعتی و ارائه خروجی‌های مهندسی قابل اتکا.',
-              fields: 'طراحی نیروگاه، سیستم‌های هیبرید، برآورد اقتصادی (IRR/LCOE)، مانیتورینگ',
-              skills: 'تهیه لیست تجهیزات، تحلیل سناریو، GIS/QGIS، استانداردسازی مستندات پروژه',
-            },
-          ].map((inst, i) => (
+          {instructors.map((inst, i) => (
             <div key={i} className="rounded-3xl bg-white p-8 shadow-lg border border-yellow-100 flex flex-col items-center text-center">
               <div className="relative mb-6 h-32 w-32 overflow-hidden rounded-2xl border-2 border-yellow-300/60 shadow-md">
                 <Image src={inst.src} alt={inst.alt} fill className="object-cover" sizes="128px" />
@@ -329,3 +340,4 @@ export default function AcademyPage() {
     </main>
   );
 }
+
