@@ -237,7 +237,7 @@ const CourseCard: React.FC<CourseCardProps> = ({ course, onShowDetails }) => {
           onClick={onShowDetails}
           className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-yellow-200 bg-yellow-50 px-6 py-3.5 font-bold text-yellow-800 transition-all duration-300 hover:border-yellow-300 hover:bg-yellow-100 active:scale-[0.98]"
         >
-          بیشتر اطلاعات
+          اطلاعات بیشتر
           <svg
             className="h-4 w-4"
             fill="none"
