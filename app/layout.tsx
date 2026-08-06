@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 import logo1 from "../img/logo1.jpg";
 
 export const metadata: Metadata = {
-  title: "پیمانکار احداث نیروگاه خورشیدی و آموزشگاه فنی حرفه ای یلدای سهند",
+  title: "22899965",
   description: "طراحی، اجرا و آموزش در حوزه انرژی خورشیدی و مهارت‌های تخصصی",
 };
 
@@ -17,9 +17,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fa" dir="rtl">
-      <head>
-        <meta name="enamad" content="22899965" />
-      </head>
       <body className="min-h-screen bg-gradient-to-b from-emerald-50 via-white to-yellow-50 text-slate-800">
         <header className="sticky top-0 z-50 border-b border-emerald-100 bg-white/90 backdrop-blur">
           <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4">
