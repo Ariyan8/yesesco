@@ -7,7 +7,7 @@ import logo1 from "../img/logo1.jpg";
 
 export const metadata: Metadata = {
   title: "22899965",
-  description: "طراحی، اجرا و آموزش در حوزه انرژی خورشیدی و مهارت‌های تخصصی",
+  description: "طراحی اجرا و آموزش در حوزه انرژی خورشیدی و مهارت‌های تخصصی",
 };
 
 export default function RootLayout({
