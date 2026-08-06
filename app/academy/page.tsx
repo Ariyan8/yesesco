@@ -554,7 +554,14 @@ export default function AcademyPage() {
         <div className="container mx-auto px-6">
           <div className="mb-14 text-center">
             <h2 className="text-3xl font-extrabold text-slate-900">چرا آموزشگاه یلدای سهند؟</h2>
-            <p className="mt-3 text-gray-600">تفاوت ما در انتقال دانش عملیاتی از قلب پروژه‌های نیروگاهی است.</p>
+            <p className="mt-3 text-gray-600">اعطای مدرک از سازمان فنی و حرفه ای بعد از قبولی آزمون تئوری و عملی</p>
+            <p className="mt-3 text-gray-600">مدرک عضویت در انجمن انرژی خورشیدی ایران</p>
+            <p className="mt-3 text-gray-600">شرکت در دوره کارآموزی با پرداخت حقوق کارآموزی</p>
+            <p className="mt-3 text-gray-600">جذب نفرات برتر در آزمون و دوره کارآموزی برای همکاری</p>
+
+
+
+
           </div>
 
           <div className="grid gap-6 md:grid-cols-3">
