@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
 
-import logo1 from "../img/logo1.jpg"; // مسیر را مطابق محل واقعی فایل چک کنید
+import logo1 from "../img/logo1.jpg";
 
 export const metadata: Metadata = {
   title: "پیمانکار احداث نیروگاه خورشیدی و آموزشگاه فنی حرفه ای یلدای سهند",
@@ -17,10 +17,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fa" dir="rtl">
+      <head>
+        <meta name="enamad" content="22899965" />
+      </head>
       <body className="min-h-screen bg-gradient-to-b from-emerald-50 via-white to-yellow-50 text-slate-800">
         <header className="sticky top-0 z-50 border-b border-emerald-100 bg-white/90 backdrop-blur">
           <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4">
-            {/* Logo + Brand */}
             <Link href="/" className="flex items-center gap-3">
               <Image
                 src={logo1}
@@ -38,7 +40,6 @@ export default function RootLayout({
               </div>
             </Link>
 
-            {/* Nav */}
             <nav className="flex flex-wrap items-center justify-center gap-2 text-sm font-bold md:gap-3 md:text-lg">
               <Link
                 href="/"
@@ -112,12 +113,11 @@ export default function RootLayout({
                 </h3>
                 <ul className="space-y-2 text-sm leading-7 text-slate-600">
                   <li>البرز، کرج، عظیمیه، بلوار کاج، پلاک 365، واحد 3</li>
-                  <li> تلفن: 09356109395</li>
+                  <li>تلفن: 09356109395</li>
                   <li>ایمیل: yesesco13@gmail.com</li>
                 </ul>
               </div>
             </div>
-
           </div>
         </footer>
       </body>
