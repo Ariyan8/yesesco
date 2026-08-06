@@ -43,7 +43,6 @@ export default function SolarPage() {
 
       <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <section className="grid items-start gap-12 lg:grid-cols-[1fr_1fr]">
-
           {/* ستون اول: توضیحات و محتوا */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
@@ -57,10 +56,14 @@ export default function SolarPage() {
               </span>
               <h1 className="mt-6 text-4xl font-black leading-tight text-slate-800 lg:text-5xl">
                 شرکت یلدای سهند <br />
-                <span className="text-yellow-500">پیشرو در انرژی‌های تجدیدپذیر</span>
+                <span className="text-yellow-500">
+                  پیشرو در انرژی‌های تجدیدپذیر
+                </span>
               </h1>
               <p className="mt-6 text-lg leading-8 text-slate-500">
-                 جهت احداث نیروگاه خورشیدی و بهره‌مندی از مزایای سرمایه‌گذاری در این حوزه، لطفاً فرم روبه‌رو را تکمیل نمایید. کارشناسان ما پس از بررسی اولیه جهت هماهنگی‌های بعدی با شما تماس خواهند گرفت.
+                جهت احداث نیروگاه خورشیدی و بهره‌مندی از مزایای سرمایه‌گذاری در
+                این حوزه، لطفاً فرم روبه‌رو را تکمیل نمایید. کارشناسان ما پس از
+                بررسی اولیه جهت هماهنگی‌های بعدی با شما تماس خواهند گرفت.
               </p>
             </div>
 
@@ -100,12 +103,14 @@ export default function SolarPage() {
             {isIframeLoading && (
               <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-white/90 backdrop-blur-sm">
                 <div className="h-12 w-12 animate-spin rounded-full border-4 border-yellow-400 border-t-transparent" />
-                <p className="mt-4 text-lg font-bold text-slate-400">در حال بارگذاری فرم ثبت‌نام...</p>
+                <p className="mt-4 text-lg font-bold text-slate-400">
+                  در حال بارگذاری فرم ثبت‌نام...
+                </p>
               </div>
             )}
 
             <iframe
-              src="https://app.epoll.ir/e/شرکت-یلدای-سهند/MjAyNjU2?Referral=iframe"
+              src="https://app.epoll.ir/e/مشخصات-فردی/MjAzNDU2?Referral=iframe"
               width="100%"
               height="650px"
               title="فرم ثبت درخواست"
@@ -115,8 +120,7 @@ export default function SolarPage() {
           </motion.div>
         </section>
 
-        <footer className="mt-20 border-t border-slate-200 pt-8 text-center text-slate-400">
-        </footer>
+        <footer className="mt-20 border-t border-slate-200 pt-8 text-center text-slate-400"></footer>
       </div>
     </main>
   );
